@@ -60,6 +60,35 @@ export const Footer: React.FC = () => {
             <p className="text-[14px] leading-relaxed text-white/70 max-w-md font-sans font-normal">
               Artisan luxury desserts crafted with Michelin-star precision and organic heritage ingredients. Experience gourmet indulgence delivered daily to your door.
             </p>
+            <div className="flex items-center gap-3">
+              <a 
+                href="https://instagram.com/kingsbakery" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-9 h-9 rounded-full border border-white/10 hover:border-[#A77146] flex items-center justify-center text-white/55 hover:text-[#E9D3BD] hover:bg-[#A77146]/10 transition-all duration-300 cursor-pointer"
+                aria-label="Instagram Profile"
+              >
+                <Instagram size={15} />
+              </a>
+              <a 
+                href="https://facebook.com/kingsbakery" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-9 h-9 rounded-full border border-white/10 hover:border-[#A77146] flex items-center justify-center text-white/55 hover:text-[#E9D3BD] hover:bg-[#A77146]/10 transition-all duration-300 cursor-pointer"
+                aria-label="Facebook Page"
+              >
+                <Facebook size={15} />
+              </a>
+              <a 
+                href="https://youtube.com/kingsbakery" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-9 h-9 rounded-full border border-white/10 hover:border-[#A77146] flex items-center justify-center text-white/55 hover:text-[#E9D3BD] hover:bg-[#A77146]/10 transition-all duration-300 cursor-pointer"
+                aria-label="YouTube Channel"
+              >
+                <Youtube size={15} />
+              </a>
+            </div>
             <div className="flex items-center gap-3 text-xs text-[#E9D3BD] font-sans font-medium bg-[#A77146]/10 border border-[#A77146]/20 px-3 py-2 rounded-md w-fit">
               <Sparkles size={13} className="text-[#A77146]" />
               <span>Upper East Side, New York — Open Daily 8AM - 10PM</span>
