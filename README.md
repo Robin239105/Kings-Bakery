@@ -9,7 +9,7 @@ Built using **Next.js 14+ (App Router)**, **TypeScript**, **Tailwind CSS**, **Pr
 ## 🌟 Key Features
 
 ### 🍰 Storefront & Dessert Catalog
-- **Signature Layer HUD Display**: Pulsing layer hotspots on product highlights letting users hover to reveal pastry structures (e.g., 24k Gold Leaf, Valrhona Ganache, Sable Crust) with frosted-glass details.
+- **Signature Layer HUD Display**: Pulsing layer hotspots on product highlights letting users reveal pastry structures (e.g., 24k Gold Leaf, Valrhona Ganache, Sable Crust) with frosted-glass details.
 - **Dynamic Shop Filtering**: Category sidebar tabs (Cakes, Tarts, Pastries, Macarons) and dietary matching options (Gluten-Free, Vegan, Nut-Free) synchronized in URL query parameters.
 - **Floating Cart Panel**: A bottom-left anchored notification widget showing order subtotals, item thumbnails, quantity steppers, and free shipping trackers.
 
@@ -45,44 +45,23 @@ Built using **Next.js 14+ (App Router)**, **TypeScript**, **Tailwind CSS**, **Pr
 
 ---
 
-## 🚀 Getting Started Locally
+## 🔒 Security & Deployment Configuration
 
-Follow these steps to run KingsBakery in your local development environment.
+To deploy KingsBakery securely (e.g., on Vercel with Neon PostgreSQL), the following environment variables must be defined in your production hosting panel:
 
-### 1. Install Dependencies
-```bash
-npm install
-```
-
-### 2. Configure Environment Variables
-Create a `.env` file in the root directory and add your PostgreSQL connection strings:
 ```env
-DATABASE_URL="postgres://..."
-DIRECT_URL="postgres://..."
-JWT_SECRET="your-super-secret-jwt-key"
+DATABASE_URL="postgres://..."          # Shared connection pool URL for API handlers
+DIRECT_URL="postgres://..."            # Direct connection URL for database migrations
+JWT_SECRET="your-jwt-secret-phrase"    # Secret key used for admin panel session tokens
+ADMIN_SEED_EMAIL="your-admin-email"    # Administrative email seeded for initial login
+ADMIN_SEED_PASSWORD="your-secure-pass" # Administrative password seeded for initial login
 ```
 
-### 3. Initialize the Database
-Build the database tables and seed them with our luxury menu items, blog posts, delivery slots, and admin account:
+During deployment or database synchronization passes, execute the standard migrations:
 ```bash
 npx prisma db push
 npx prisma db seed
 ```
-
-### 4. Start the Dev Server
-```bash
-npm run dev
-```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
----
-
-## 🔐 Credentials & Testing
-
-### Admin Access Dashboard
-- **URL**: `/admin`
-- **Email**: `admin@kingsbakery.com`
-- **Password**: `KingsBakery2026!`
 
 ---
 

@@ -25,8 +25,13 @@ async function main() {
 
   // 2. Seed Admin User
   console.log("🔐 Seeding Admin User...");
-  const adminEmail = process.env.ADMIN_SEED_EMAIL || "admin@kingsbakery.com";
-  const adminPassword = process.env.ADMIN_SEED_PASSWORD || "KingsBakery2026!";
+  const adminEmail = process.env.ADMIN_SEED_EMAIL;
+  const adminPassword = process.env.ADMIN_SEED_PASSWORD;
+
+  if (!adminEmail || !adminPassword) {
+    throw new Error("❌ Seeding aborted: ADMIN_SEED_EMAIL and ADMIN_SEED_PASSWORD environment variables are required.");
+  }
+
   const passwordHash = bcrypt.hashSync(adminPassword, 10);
 
   await prisma.adminUser.create({
@@ -37,7 +42,7 @@ async function main() {
       role: "admin",
     },
   });
-  console.log(`👤 Admin created. Login: ${adminEmail} / ${adminPassword}`);
+  console.log("👤 Admin user seeded successfully.");
 
   // 3. Seed Categories
   console.log("📁 Seeding Categories...");
